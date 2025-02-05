@@ -1,106 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLI-Billing-System</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-        }
+# Billing System - README
 
-        h1, h2, h3 {
-            color: #333;
-        }
+## Overview
 
-        p {
-            color: #555;
-        }
+This C program is a simple billing system for managing customers, products, and purchases. It supports various operations like adding customers, adding products, calculating bills, saving/loading data to/from files, and searching customers by phone number. The system also allows for product and customer removal from the system.
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+## Features
 
-        li {
-            margin-bottom: 10px;
-        }
+1. **Add Customer**: Allows the addition of a customer with their name, address, phone number, and balance.
+2. **Add Product**: Adds a product with details like name, price, category, and quantity.
+3. **Display Customers**: Displays a list of all customers in the system.
+4. **Display Products**: Displays a list of all products in the system.
+5. **Add Purchase**: Records a purchase made by a customer, updating the product inventory and customer purchase history.
+6. **Calculate Bill**: Calculates the total bill for a customer, including GST and any existing balance.
+7. **Remove Product**: Allows removal of a product from the system.
+8. **Remove Customer**: Removes a customer from the system.
+9. **Save Data to Files**: Saves all customer and product data to text files.
+10. **Search Customer by Phone**: Search for a customer using the last four digits of their phone number.
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+## Files
 
-        .section {
-            margin-bottom: 40px;
-        }
+- `customers.txt`: Stores customer details (ID, name, address, phone number, balance).
+- `products.txt`: Stores product details (ID, name, category, price, quantity).
 
-        .section-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #009688;
-        }
+## Compilation
 
-        .feature-list {
-            margin-left: 20px;
-        }
+To compile the program, run the following command in the terminal:
 
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #009688;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
+```
+gcc -o billing_system billing_system.c
+```
 
-    <div class="container">
+Where `billing_system.c` is the name of the source code file.
 
-        <header>
-            <h1>CLI-Billing-System</h1>
-            <p>Developing a command-line interface (CLI) for billing and managing product inventory is an efficient solution tailored for small firms.</p>
-        </header>
+## Running the Program
 
-        <div class="section">
-            <h2 class="section-title">Introducing a Streamlined Command Line Interface (CLI)</h2>
-            <p>Using basic C programming tailored for small businesses, our CLI offers efficient billing and seamless product inventory management. This user-friendly tool is designed to enhance the operational efficiency of your business with minimal complexity.</p>
-        </div>
+To run the program, use the following command:
 
-        <div class="section">
-            <h2 class="section-title">Features</h2>
-            <ul class="feature-list">
-                <li><strong>Intuitive Billing:</strong>
-                    <ul>
-                        <li>Generate and manage invoices effortlessly using simple command prompts.</li>
-                        <li>Easily add and itemize products, quantities, and prices for accurate billing.</li>
-                    </ul>
-                </li>
-                <li><strong>Product Inventory Management:</strong>
-                    <ul>
-                        <li>Maintain a comprehensive inventory database through the command line.</li>
-                        <li>Add new products, update existing entries, and track stock levels seamlessly.</li>
-                    </ul>
-                </li>
-                <!-- Add other features similarly -->
-            </ul>
-        </div>
+```
+./billing_system
+```
 
-        <div class="section">
-            <h2 class="section-title">Embrace the Power of Command Line Simplicity</h2>
-            <p>Our Billing and Inventory Management CLI is your gateway to streamlined business operations. Elevate your small firm's efficiency without compromising on usability.</p>
-            <a href="#" class="cta-button">Get Started</a>
-        </div>
+## Menu Options
 
-    </div>
+1. **Add Customer**: Adds a new customer to the system.
+2. **Add Product**: Adds a new product to the system.
+3. **Display Customers**: Displays all customers.
+4. **Display Products**: Displays all products.
+5. **Add Purchase**: Adds a new purchase for a customer.
+6. **Calculate Bill**: Calculates the total bill for a customer, including GST.
+7. **Remove Product**: Removes a product from the system.
+8. **Remove Customer**: Removes a customer from the system.
+9. **Save Data to Files**: Saves the current data to text files.
+10. **Search Customer by Phone**: Allows searching for a customer by the last 4 digits of their phone number.
 
-</body>
-</html>
+## Example of Customer Record
+
+```
+ID: 1, Name: John Doe, Address: 1234 Elm Street, Phone: 1234567890, Balance: 0.00
+```
+
+## Example of Product Record
+
+```
+ID: 1, Category: Electronics, Name: Laptop, Price: 1000.00, Quantity: 10
+```
+
+## Example of Bill Calculation
+
+After purchasing products, the system will calculate the total bill, including the 18% GST and the customer's previous balance (if any).
+
+```
+GST (18%): Rs 180.00
+Total Amount of Already Purchased Products: Rs 500.00
+Total Amount of Newly Purchased Products: Rs 400.00
+Total Payment for Customer John Doe: Rs 1080.00
+```
+
+## File Operations
+
+- **Saving Data**: The system saves the customer and product data to `customers.txt` and `products.txt` for persistence between program runs.
+- **Loading Data**: When the program starts, it loads the saved data from the files if available.
+
+## Future Enhancements
+
+- Implement advanced error handling and input validation.
+- Add support for different payment methods.
+- Enhance customer search with more filters.
+- Include product search and sorting by different attributes.
